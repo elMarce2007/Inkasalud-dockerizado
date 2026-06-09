@@ -1,0 +1,13 @@
+/Users/leohualop/Documents/Inka Salud/inkasalud/ventas-service/src/main/java/com/inkasalud/ventasservice/VentasServiceApplication.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/ventas-service/src/main/java/com/inkasalud/ventasservice/messaging/StockUpdateSender.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/ventas-service/src/main/java/com/inkasalud/ventasservice/dto/DetalleVentaDto.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/ventas-service/src/main/java/com/inkasalud/ventasservice/service/VentaService.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/ventas-service/src/main/java/com/inkasalud/ventasservice/repository/VentaRepository.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/ventas-service/src/main/java/com/inkasalud/ventasservice/dto/StockUpdateMessage.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/ventas-service/src/main/java/com/inkasalud/ventasservice/dto/VentaDto.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/ventas-service/src/main/java/com/inkasalud/ventasservice/service/VentaServiceImpl.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/ventas-service/src/main/java/com/inkasalud/ventasservice/controller/VentaController.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/ventas-service/src/main/java/com/inkasalud/ventasservice/repository/DetalleVentaRepository.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/ventas-service/src/main/java/com/inkasalud/ventasservice/config/RabbitMQConfig.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/ventas-service/src/main/java/com/inkasalud/ventasservice/entity/Venta.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/ventas-service/src/main/java/com/inkasalud/ventasservice/entity/DetalleVenta.java

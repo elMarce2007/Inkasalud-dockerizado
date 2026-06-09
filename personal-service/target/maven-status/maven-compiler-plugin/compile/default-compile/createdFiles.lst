@@ -1,0 +1,7 @@
+com/inkasalud/personalservice/entity/Personal.class
+com/inkasalud/personalservice/controller/PersonalController.class
+com/inkasalud/personalservice/service/PersonalServiceImpl.class
+com/inkasalud/personalservice/service/PersonalService.class
+com/inkasalud/personalservice/repository/PersonalRepository.class
+com/inkasalud/personalservice/PersonalServiceApplication.class
+com/inkasalud/personalservice/dto/PersonalDto.class

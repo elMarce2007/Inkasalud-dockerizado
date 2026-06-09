@@ -1,0 +1,16 @@
+/Users/leohualop/Documents/Inka Salud/inkasalud/catalogo-service/src/main/java/com/inkasalud/catalogoservice/dto/ProductoDto.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/catalogo-service/src/main/java/com/inkasalud/catalogoservice/entity/Categoria.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/catalogo-service/src/main/java/com/inkasalud/catalogoservice/service/CategoriaService.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/catalogo-service/src/main/java/com/inkasalud/catalogoservice/dto/CategoriaDto.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/catalogo-service/src/main/java/com/inkasalud/catalogoservice/repository/CategoriaRepository.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/catalogo-service/src/main/java/com/inkasalud/catalogoservice/config/RabbitMQConfig.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/catalogo-service/src/main/java/com/inkasalud/catalogoservice/entity/Producto.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/catalogo-service/src/main/java/com/inkasalud/catalogoservice/service/ProductoService.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/catalogo-service/src/main/java/com/inkasalud/catalogoservice/messaging/StockUpdateListener.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/catalogo-service/src/main/java/com/inkasalud/catalogoservice/dto/StockUpdateMessage.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/catalogo-service/src/main/java/com/inkasalud/catalogoservice/controller/CategoriaController.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/catalogo-service/src/main/java/com/inkasalud/catalogoservice/service/CategoriaServiceImpl.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/catalogo-service/src/main/java/com/inkasalud/catalogoservice/CatalogoServiceApplication.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/catalogo-service/src/main/java/com/inkasalud/catalogoservice/repository/ProductoRepository.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/catalogo-service/src/main/java/com/inkasalud/catalogoservice/service/ProductoServiceImpl.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/catalogo-service/src/main/java/com/inkasalud/catalogoservice/controller/ProductoController.java
