@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://inkasalud.com/personal"
+           targetNamespace="http://inkasalud.com/personal"
+           elementFormDefault="qualified">
+
+    <xs:complexType name="personalType">
+        <xs:sequence>
+            <xs:element name="id"        type="xs:long"/>
+            <xs:element name="nombres"   type="xs:string"/>
+            <xs:element name="apellidos" type="xs:string"/>
+            <xs:element name="cargo"     type="xs:string"/>
+            <xs:element name="email"     type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="listarPersonalRequest">
+        <xs:complexType><xs:sequence/></xs:complexType>
+    </xs:element>
+    <xs:element name="listarPersonalResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="personal" type="tns:personalType"
+                            minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="obtenerPersonalRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="obtenerPersonalResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="personal" type="tns:personalType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
