@@ -1,0 +1,13 @@
+com/inkasalud/ventasservice/repository/DetalleVentaRepository.class
+com/inkasalud/ventasservice/config/RabbitMQConfig.class
+com/inkasalud/ventasservice/dto/DetalleVentaDto.class
+com/inkasalud/ventasservice/repository/VentaRepository.class
+com/inkasalud/ventasservice/dto/StockUpdateMessage.class
+com/inkasalud/ventasservice/VentasServiceApplication.class
+com/inkasalud/ventasservice/service/VentaService.class
+com/inkasalud/ventasservice/service/VentaServiceImpl.class
+com/inkasalud/ventasservice/entity/DetalleVenta.class
+com/inkasalud/ventasservice/dto/VentaDto.class
+com/inkasalud/ventasservice/controller/VentaController.class
+com/inkasalud/ventasservice/messaging/StockUpdateSender.class
+com/inkasalud/ventasservice/entity/Venta.class

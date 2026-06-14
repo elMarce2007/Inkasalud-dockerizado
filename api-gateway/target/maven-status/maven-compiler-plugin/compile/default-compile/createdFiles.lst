@@ -1,0 +1,4 @@
+com/inkasalud/apigateway/ApiGatewayApplication.class
+com/inkasalud/apigateway/config/GatewayConfig.class
+com/inkasalud/apigateway/util/JwtUtil.class
+com/inkasalud/apigateway/filter/JwtAuthenticationFilter.class

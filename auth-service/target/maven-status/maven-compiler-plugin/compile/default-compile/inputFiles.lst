@@ -1,0 +1,11 @@
+/Users/leohualop/Documents/Inka Salud/inkasalud/auth-service/src/main/java/com/inkasalud/authservice/util/JwtUtil.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/auth-service/src/main/java/com/inkasalud/authservice/dto/RegistroRequest.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/auth-service/src/main/java/com/inkasalud/authservice/dto/LoginResponse.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/auth-service/src/main/java/com/inkasalud/authservice/AuthServiceApplication.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/auth-service/src/main/java/com/inkasalud/authservice/service/UserDetailsServiceImpl.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/auth-service/src/main/java/com/inkasalud/authservice/controller/AuthController.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/auth-service/src/main/java/com/inkasalud/authservice/config/SecurityConfig.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/auth-service/src/main/java/com/inkasalud/authservice/entity/Usuario.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/auth-service/src/main/java/com/inkasalud/authservice/dto/LoginRequest.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/auth-service/src/main/java/com/inkasalud/authservice/repository/UsuarioRepository.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/auth-service/src/main/java/com/inkasalud/authservice/service/AuthService.java

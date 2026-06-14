@@ -1,0 +1,7 @@
+com/inkasalud/clienteservice/controller/ClienteController.class
+com/inkasalud/clienteservice/entity/Cliente.class
+com/inkasalud/clienteservice/dto/ClienteDto.class
+com/inkasalud/clienteservice/service/ClienteServiceImpl.class
+com/inkasalud/clienteservice/service/ClienteService.class
+com/inkasalud/clienteservice/repository/ClienteRepository.class
+com/inkasalud/clienteservice/ClienteServiceApplication.class

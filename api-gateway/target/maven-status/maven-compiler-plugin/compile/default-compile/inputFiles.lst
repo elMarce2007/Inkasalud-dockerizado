@@ -1,0 +1,4 @@
+/Users/leohualop/Documents/Inka Salud/inkasalud/api-gateway/src/main/java/com/inkasalud/apigateway/filter/JwtAuthenticationFilter.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/api-gateway/src/main/java/com/inkasalud/apigateway/ApiGatewayApplication.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/api-gateway/src/main/java/com/inkasalud/apigateway/util/JwtUtil.java
+/Users/leohualop/Documents/Inka Salud/inkasalud/api-gateway/src/main/java/com/inkasalud/apigateway/config/GatewayConfig.java

@@ -1,0 +1,16 @@
+com/inkasalud/catalogoservice/config/RabbitMQConfig.class
+com/inkasalud/catalogoservice/messaging/StockUpdateListener.class
+com/inkasalud/catalogoservice/repository/CategoriaRepository.class
+com/inkasalud/catalogoservice/service/ProductoServiceImpl.class
+com/inkasalud/catalogoservice/dto/CategoriaDto.class
+com/inkasalud/catalogoservice/service/CategoriaServiceImpl.class
+com/inkasalud/catalogoservice/dto/StockUpdateMessage.class
+com/inkasalud/catalogoservice/dto/ProductoDto.class
+com/inkasalud/catalogoservice/entity/Producto.class
+com/inkasalud/catalogoservice/entity/Categoria.class
+com/inkasalud/catalogoservice/CatalogoServiceApplication.class
+com/inkasalud/catalogoservice/service/CategoriaService.class
+com/inkasalud/catalogoservice/repository/ProductoRepository.class
+com/inkasalud/catalogoservice/controller/ProductoController.class
+com/inkasalud/catalogoservice/controller/CategoriaController.class
+com/inkasalud/catalogoservice/service/ProductoService.class
