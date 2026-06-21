@@ -3,6 +3,7 @@ package com.inkasalud.personalservice.service;
 import com.inkasalud.personalservice.dto.PersonalDto;
 import com.inkasalud.personalservice.entity.Personal;
 import com.inkasalud.personalservice.repository.PersonalRepository;
+import com.inkasalud.personalservice.socket.SocketNotificationServer;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,9 +13,14 @@ import java.util.stream.Collectors;
 public class PersonalServiceImpl implements PersonalService {
 
     private final PersonalRepository personalRepository;
+    private final SocketNotificationServer socketNotificationServer;
 
-    public PersonalServiceImpl(PersonalRepository personalRepository) {
+    public PersonalServiceImpl(
+            PersonalRepository personalRepository,
+            SocketNotificationServer socketNotificationServer) {
+
         this.personalRepository = personalRepository;
+        this.socketNotificationServer = socketNotificationServer;
     }
 
     @Override
@@ -30,22 +36,42 @@ public class PersonalServiceImpl implements PersonalService {
 
     @Override
     public PersonalDto crear(PersonalDto dto) {
-        return toDto(personalRepository.save(toEntity(dto)));
+        Personal personalGuardado = personalRepository.save(toEntity(dto));
+
+        socketNotificationServer.notificar(
+                "Nuevo personal registrado: "
+                        + personalGuardado.getNombres()
+        );
+
+        return toDto(personalGuardado);
     }
 
     @Override
     public PersonalDto actualizar(Long id, PersonalDto dto) {
         Personal personal = personalRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Personal no encontrado: " + id));
+
         personal.setNombres(dto.nombres());
         personal.setApellidos(dto.apellidos());
         personal.setCargo(dto.cargo());
         personal.setEmail(dto.email());
-        return toDto(personalRepository.save(personal));
+
+        Personal personalActualizado = personalRepository.save(personal);
+
+        socketNotificationServer.notificar(
+                "Personal actualizado: "
+                        + personalActualizado.getNombres()
+        );
+
+        return toDto(personalActualizado);
     }
 
     @Override
     public void eliminar(Long id) {
+        socketNotificationServer.notificar(
+                "Personal eliminado con ID: " + id
+        );
+
         personalRepository.deleteById(id);
     }
 

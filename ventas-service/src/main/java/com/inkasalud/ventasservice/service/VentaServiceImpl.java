@@ -1,5 +1,5 @@
 package com.inkasalud.ventasservice.service;
-
+import com.inkasalud.ventasservice.socket.SocketNotificationServer;
 import com.inkasalud.ventasservice.dto.DetalleVentaDto;
 import com.inkasalud.ventasservice.dto.VentaDto;
 import com.inkasalud.ventasservice.entity.DetalleVenta;
@@ -18,10 +18,12 @@ public class VentaServiceImpl implements VentaService {
 
     private final VentaRepository ventaRepository;
     private final StockUpdateSender stockUpdateSender;
+    private final SocketNotificationServer socketNotificationServer;
 
-    public VentaServiceImpl(VentaRepository ventaRepository, StockUpdateSender stockUpdateSender) {
+    public VentaServiceImpl(VentaRepository ventaRepository, StockUpdateSender stockUpdateSender, SocketNotificationServer socketNotificationServer) {
         this.ventaRepository = ventaRepository;
         this.stockUpdateSender = stockUpdateSender;
+        this.socketNotificationServer = socketNotificationServer;
     }
 
     @Override
@@ -55,7 +57,17 @@ public class VentaServiceImpl implements VentaService {
         venta.setTotal(detalles.stream().mapToDouble(DetalleVenta::getSubtotal).sum());
 
         Venta saved = ventaRepository.save(venta);
-        detalles.forEach(d -> stockUpdateSender.sendStockUpdate(d.getProductoId(), d.getCantidad()));
+
+        socketNotificationServer.notificar(
+                "Nueva venta registrada | ID: "
+                        + saved.getId()
+                        + " | Total: S/ "
+                        + saved.getTotal()
+        );
+
+        detalles.forEach(d ->
+                stockUpdateSender.sendStockUpdate(d.getProductoId(), d.getCantidad())
+        );
 
         return toDto(saved);
     }

@@ -1,5 +1,5 @@
 package com.inkasalud.catalogoservice.service;
-
+import com.inkasalud.catalogoservice.socket.SocketNotificationServer;
 import com.inkasalud.catalogoservice.dto.ProductoDto;
 import com.inkasalud.catalogoservice.entity.Categoria;
 import com.inkasalud.catalogoservice.entity.Producto;
@@ -15,12 +15,14 @@ public class ProductoServiceImpl implements ProductoService {
 
     private final ProductoRepository productoRepository;
     private final CategoriaRepository categoriaRepository;
+    private final SocketNotificationServer socketNotificationServer;
 
-    public ProductoServiceImpl(ProductoRepository productoRepository, CategoriaRepository categoriaRepository) {
+    public ProductoServiceImpl(ProductoRepository productoRepository, CategoriaRepository categoriaRepository, SocketNotificationServer socketNotificationServer)
+    {
         this.productoRepository = productoRepository;
         this.categoriaRepository = categoriaRepository;
+        this.socketNotificationServer = socketNotificationServer;
     }
-
     @Override
     public List<ProductoDto> listar() {
         return productoRepository.findAll().stream().map(this::toDto).collect(Collectors.toList());
@@ -34,7 +36,16 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Override
     public ProductoDto crear(ProductoDto dto) {
-        return toDto(productoRepository.save(toEntity(dto)));
+
+        Producto productoGuardado =
+                productoRepository.save(toEntity(dto));
+
+        socketNotificationServer.notificar(
+                "Nuevo producto registrado: "
+                        + productoGuardado.getNombre()
+        );
+
+        return toDto(productoGuardado);
     }
 
     @Override
@@ -50,11 +61,24 @@ public class ProductoServiceImpl implements ProductoService {
                     .orElseThrow(() -> new RuntimeException("Categoría no encontrada: " + dto.categoriaId()));
             producto.setCategoria(categoria);
         }
-        return toDto(productoRepository.save(producto));
+        Producto productoActualizado =
+                productoRepository.save(producto);
+
+        socketNotificationServer.notificar(
+                "Producto actualizado: "
+                        + productoActualizado.getNombre()
+        );
+
+        return toDto(productoActualizado);
     }
 
     @Override
     public void eliminar(Long id) {
+
+        socketNotificationServer.notificar(
+                "Producto eliminado con ID: " + id
+        );
+
         productoRepository.deleteById(id);
     }
 

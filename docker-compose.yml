@@ -222,6 +222,7 @@ services:
       RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD:-guest}
     ports:
       - "8084:8084"
+      - "9090:9090"
     depends_on:
       mysql:
         condition: service_healthy
@@ -250,7 +251,7 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD:-1234}
     ports:
-      - "8085:8085"
+      - "9093:9093"
     depends_on:
       mysql:
         condition: service_healthy
