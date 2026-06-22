@@ -28,4 +28,8 @@ export class PersonalService {
   eliminar(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+
+  descargarReporte(): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}/reporte/csv`, { responseType: 'blob' });
+  }
 }

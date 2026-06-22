@@ -33,9 +33,14 @@ import { ConfirmDialogComponent } from '../../../shared/components/confirm-dialo
     <div class="page-container">
       <div class="page-header">
         <h1>Personal</h1>
-        <button mat-raised-button color="primary" routerLink="nuevo">
-          <mat-icon>add</mat-icon> Nuevo Personal
-        </button>
+        <div class="header-actions">
+          <button mat-raised-button class="btn-excel" (click)="descargarReporte()">
+            <mat-icon>description</mat-icon> Exportar
+          </button>
+          <button mat-raised-button color="primary" routerLink="nuevo">
+            <mat-icon>add</mat-icon> Nuevo Personal
+          </button>
+        </div>
       </div>
 
       <mat-card>
@@ -99,7 +104,21 @@ import { ConfirmDialogComponent } from '../../../shared/components/confirm-dialo
       </mat-card>
     </div>
   `,
-  styles: ``
+  styles: `
+    .header-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-excel {
+      background-color: #1D7044;
+      color: #ffffff;
+    }
+
+    .btn-excel:hover {
+      background-color: #155c36;
+    }
+  `
 })
 export class PersonalListComponent implements OnInit, AfterViewInit {
   private personalService = inject(PersonalService);
@@ -130,6 +149,23 @@ export class PersonalListComponent implements OnInit, AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  descargarReporte() {
+    this.personalService.descargarReporte().subscribe({
+      next: (blob) => {
+        const url = window.URL.createObjectURL(blob);
+        const enlace = document.createElement('a');
+        enlace.href = url;
+        enlace.download = `personal_${new Date().toISOString().slice(0, 10)}.csv`;
+        enlace.click();
+        window.URL.revokeObjectURL(url);
+        this.snackBar.open('Reporte descargado', 'OK', { duration: 3000 });
+      },
+      error: () => {
+        this.snackBar.open('Error al generar el reporte', 'OK', { duration: 3000 });
+      }
+    });
   }
 
   eliminar(personal: Personal) {
