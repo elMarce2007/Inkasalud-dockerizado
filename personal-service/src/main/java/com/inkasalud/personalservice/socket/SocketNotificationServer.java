@@ -46,10 +46,11 @@ public class SocketNotificationServer {
 
     private void atenderCliente(Socket socketCliente) {
 
+        PrintWriter salida = null;
+
         try {
 
-            PrintWriter salida =
-                    new PrintWriter(socketCliente.getOutputStream(), true);
+            salida = new PrintWriter(socketCliente.getOutputStream(), true);
 
             clientes.add(salida);
 
@@ -62,12 +63,23 @@ public class SocketNotificationServer {
         } catch (Exception e) {
 
             System.out.println("Cliente socket PERSONAL desconectado");
+
+        } finally {
+
+            if (salida != null) {
+                clientes.remove(salida);
+            }
+
+            try {
+                socketCliente.close();
+            } catch (Exception ignored) {
+            }
         }
     }
 
     public void notificar(String mensaje) {
 
-        System.out.println("ENVIANDO SOCKET: " + mensaje);
+        System.out.println("ENVIANDO SOCKET PERSONAL: " + mensaje);
 
         for (PrintWriter cliente : clientes) {
 
