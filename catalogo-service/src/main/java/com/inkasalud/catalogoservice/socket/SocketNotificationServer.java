@@ -1,7 +1,9 @@
 package com.inkasalud.catalogoservice.socket;
+
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -35,7 +37,7 @@ public class SocketNotificationServer {
 
             } catch (Exception e) {
 
-                System.out.println("Error Socket: " + e.getMessage());
+                System.out.println("Error Socket CATALOGO: " + e.getMessage());
             }
 
         });
@@ -45,28 +47,47 @@ public class SocketNotificationServer {
 
     private void atenderCliente(Socket socketCliente) {
 
+        PrintWriter salida = null;
+
         try {
 
-            PrintWriter salida =
-                    new PrintWriter(socketCliente.getOutputStream(), true);
+            salida = new PrintWriter(socketCliente.getOutputStream(), true);
 
             clientes.add(salida);
 
-            salida.println("Cliente conectado al socket CLIENTES");
+            salida.println("Cliente conectado al socket CATALOGO");
 
             while (!socketCliente.isClosed()) {
+
                 Thread.sleep(1000);
+
+                salida.println();
+
+                if (salida.checkError()) {
+                    throw new IOException("Conexion perdida con el cliente CATALOGO");
+                }
             }
 
         } catch (Exception e) {
 
-            System.out.println("Cliente desconectado");
+            System.out.println("Cliente socket CATALOGO desconectado");
+
+        } finally {
+
+            if (salida != null) {
+                clientes.remove(salida);
+            }
+
+            try {
+                socketCliente.close();
+            } catch (Exception ignored) {
+            }
         }
     }
 
     public void notificar(String mensaje) {
 
-        System.out.println("ENVIANDO SOCKET: " + mensaje);
+        System.out.println("ENVIANDO SOCKET CATALOGO: " + mensaje);
 
         for (PrintWriter cliente : clientes) {
 

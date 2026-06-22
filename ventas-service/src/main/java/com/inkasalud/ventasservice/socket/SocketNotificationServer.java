@@ -3,6 +3,7 @@ package com.inkasalud.ventasservice.socket;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -57,7 +58,15 @@ public class SocketNotificationServer {
             salida.println("Cliente conectado al socket VENTAS");
 
             while (!socketCliente.isClosed()) {
+
                 Thread.sleep(1000);
+
+                // Forzamos una escritura para detectar si el cliente ya cerro su lado
+                salida.println();
+
+                if (salida.checkError()) {
+                    throw new IOException("Conexion perdida con el cliente VENTAS");
+                }
             }
 
         } catch (Exception e) {
@@ -66,7 +75,6 @@ public class SocketNotificationServer {
 
         } finally {
 
-            // Evita que la lista crezca indefinidamente con clientes muertos
             if (salida != null) {
                 clientes.remove(salida);
             }
